@@ -296,55 +296,30 @@
 
   \RequirePackage{fontspec}
   \RequirePackage{xecyr}
-   %\RequirePackage{xunicode}
-   %\RequirePackage{xltxtra}
-  \RequirePackage{polyglossia}
-  \setdefaultlanguage{russian}
-  \setotherlanguage{english}
-  \defaultfontfeatures{Mapping=tex-text}
-  %\setmainfont{CMU Serif}
-  \setromanfont[
-      BoldFont = cmunbx.otf,
-      ItalicFont = cmunti.otf,
-  BoldItalicFont = cmunbi.otf]
-  {cmunrm.otf}
-
-  \setsansfont[
-      BoldFont = cmunsx.otf,
-      ItalicFont = cmunsi.otf,
-  BoldItalicFont = cmunso.otf]
-  {cmunss.otf}
-
-  \setmonofont[
-      BoldFont = cmuntb.otf,
-      ItalicFont = cmunit.otf,
-  BoldItalicFont = cmuntx.otf]
-  {cmuntt.otf}
-  %\setmainfont{cmunrm.ttf}
+   \RequirePackage{xunicode}
+   \RequirePackage{xltxtra}
+ \usepackage{polyglossia}                        % Поддержка многоязычности (fontspec подгружается автоматически)
+    \setmainlanguage[babelshorthands=true]{russian} % Язык по-умолчанию русский с поддержкой приятных команд пакета babel
+    \setotherlanguage{english}                      % Дополнительный язык = английский (в американской вариации по-умолчанию)
+    \setmonofont{Courier New} % моноширинный шрифт
+    \newfontfamily\cyrillicfonttt{Courier New}[Script = Cyrillic] % моноширинный шрифт для кириллицы
+    \defaultfontfeatures{Ligatures=TeX} % стандартные лигатуры TeX, замены нескольких дефисов на тире и т. п. Настройки моноширинного шрифта должны идти до этой строки, чтобы при врезках кода программ в коде не применялись лигатуры и замены дефисов
+    \setmainfont{PT Astra Serif} % Основной шрифт
+    \newfontfamily\cyrillicfont{PT Astra Serif}[Script = Cyrillic] % Основной шрифт для кириллицы
+    \setsansfont{Arial} % Шрифт без засечек
+    \newfontfamily\cyrillicfontsf{Arial}[Script = Cyrillic] % Шрифт без засечек для кириллицы
   %\setsansfont{cmunss.ttf}
   %\setmonofont{cmuntt.ttf}
   %\setmainfont{GOST_type_A} % Ставим как основной шрифт
   %\setsansfont{GOST_type_A}
   %\setmonofont{GOST_type_A}
 
-  \newfontfamily{\cyrillicfont}{cmunrm.otf}[
-      BoldFont = cmunbx.otf,
-      ItalicFont = cmunti.otf,
-  BoldItalicFont = cmunbi.otf]
-  \newfontfamily{\cyrillicfontt}{cmunrm.otf}[
-      BoldFont = cmunsx.otf,
-      ItalicFont = cmunsi.otf,
-  BoldItalicFont = cmunso.otf]
-  \newfontfamily{\cyrillicfonttt}{cmunrm.otf}[
-      BoldFont = cmuntb.otf,
-      ItalicFont = cmunit.otf,
-  BoldItalicFont = cmuntx.otf]
   % убирает точку после названий секций
   \addto\russian@capsformat{
-	\def\postchapter{\@aftersepkern}
-	\def\postsection{\@aftersepkern}
-	\def\postsubsection{\@aftersepkern}
-	\def\postsubsubsection{\@aftersepkern}
+        \def\postchapter{\@aftersepkern}
+        \def\postsection{\@aftersepkern}
+        \def\postsubsection{\@aftersepkern}
+        \def\postsubsubsection{\@aftersepkern}
   }
 \fi
 \RequirePackage{flafter}
